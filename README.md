@@ -1,1 +1,1 @@
-# shopware-6-knowledge-base-
+# My personal shopware 6 knowledge base
