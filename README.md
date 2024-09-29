@@ -2,10 +2,18 @@
 
 I am starting to save stuff here I have learned over the past years while developing custom shopware 6 shops.
 
+Most of the markdown files are empty currently and more an inspiration what to add in the future.
+
 ## Content
-- [Deployment](./shopware-6-gitlab-deployment/shopware-6-gitlab-deployment.md)
-- [Stylechecks](./shopware-6-stylechecks/shopware-6-stylechecks.md) - Blank file
-- [Custom cms image](./shopware-6-custom-cms-image/shopware-6-custom-cms-image.md) - Blank file
+- [Deployment](./deployment/deployment.md)
+  - [Shop](./deployment/shop/deployment.md)
+  - [Plugin](./deployment/plugin/deployment.md)
+- [Stylechecks](./stylechecks/stylechecks.md)
+  - [CsFixer](./stylechecks/csfixer/csfixer.md)
+  - [PhpStan](./stylechecks/phpstan/phpstan.md)
+  - [Prettier](./stylechecks/prettier/prettier.md)
+  - [TwigCs](./stylechecks/twigcs/twigcs.md)
+- [Custom cms image](./shopware-6-custom-cms-image/shopware-6-custom-cms-image.md)
 
 ---
 
