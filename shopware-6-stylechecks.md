@@ -1,4 +1,4 @@
-#Shopware 6 Stylechecks
+# Shopware 6 Stylechecks
 
 Upcomming checks:
 
