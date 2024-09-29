@@ -2,9 +2,14 @@
 
 I am starting to save stuff here I have learned over the past years while developing custom shopware 6 shops.
 
+## Content
+- [Deployment](./shopware-6-gitlab-deployment/shopware-6-gitlab-deployment.md)
+- [Stylechecks](./shopware-6-stylechecks/shopware-6-stylechecks.md) - Blank file
+- [Custom cms image](./shopware-6-custom-cms-image/shopware-6-custom-cms-image.md) - Blank file
+
 ---
 
-> ℹ️ **Info:** Feel free to request changes via a [pull request](https://github.com/pt1602/shopware-6-knowledge-base/pulls)
+> **Info:** Feel free to request changes via a [pull request](https://github.com/pt1602/shopware-6-knowledge-base/pulls)
 
 ---
 
