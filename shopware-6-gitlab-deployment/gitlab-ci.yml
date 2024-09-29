@@ -1,0 +1,30 @@
+stages:
+  - Deploy
+
+deploy-dev:
+  stage: Deploy
+  rules:
+    - if: '$CI_COMMIT_REF_NAME == "dev"'
+  image: "kellerkinder/pipeline-image:8.2"
+  before_script:
+    - eval $(ssh-agent -s)
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+  script:
+    - ssh -o StrictHostKeyChecking=no "$SSH_CONNECTION" "cd /root-shopdir-dev/ && git fetch && git checkout dev && git pull"
+    - ssh -o StrictHostKeyChecking=no "$SSH_CONNECTION" "cd /root-shopdir-dev/ && bin/console sales-channel:maintenance:enable --all && composer install -n && bin/console database:migrate --all && bin/console plugin:refresh && bin/console plugin:update:all && bin/console cache:clear && bin/console theme:compile && bin/console sales-channel:maintenance:disable --all"
+
+deploy-live:
+  stage: Deploy
+  rules:
+    - if: '$CI_COMMIT_TAG =~ /release-.*/'
+  image: "kellerkinder/pipeline-image:8.2"
+  before_script:
+    - eval $(ssh-agent -s)
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+  script:
+    - ssh -o StrictHostKeyChecking=no "$SSH_CONNECTION" "cd /root-shopdir-live/ && git fetch && git checkout $CI_COMMIT_TAG"
+    - ssh -o StrictHostKeyChecking=no "$SSH_CONNECTION" "cd /root-shopdir-live/ && bin/console sales-channel:maintenance:enable --all && composer install -n && bin/console database:migrate --all && bin/console plugin:refresh && bin/console plugin:update:all && bin/console cache:clear && bin/console theme:compile && bin/console sales-channel:maintenance:disable --all"
